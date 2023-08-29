@@ -7,3 +7,19 @@ It is reported that EdgeSmart plans to launch the first application demonstratio
 The success of EdgeSmart will accelerate the integration process of edge computing and blockchain technology, and promote the further development of distributed application innovation. With the application of edge computing and blockchain in more fields, we have reason to believe that this technology combination will bring us a more secure, efficient and credible digital future.
 Please look forward to the official release of the EdgeSmart (EdgeSmartChain) project. EdgeSmart will bring you more latest progress and innovative applications on the combination of edge computing and blockchain.
 ​
+ 
+app/src/main/java/org/thunderdog/challegram/component/chat/InputView.java
+@@ -1599,10 +1599,13 @@ public void paste (TdApi.FormattedText pasteText, boolean needSelectPastedText)
+
+    final int start = selection.start;
+    paste(selection, pasteText.text, needSelectPastedText);
+    if (pasteText.entities != null) {
+    if (pasteText.entities != null && pasteText.entities.length > 0) {
+      for (TdApi.TextEntity entity: pasteText.entities) {
+        setSpan(start + entity.offset, start + entity.offset + entity.length, entity.type);
+      }
+      if (pasteText.text != null) {
+        setSelection(start, pasteText.text.length());
+      }
+    }
+  }
